@@ -1,0 +1,1 @@
+UPDATE livros SET titulo= '{{Table1.updatedRow.titulo}}', autor_id= '{{Table1.updatedRow.autor_id}}', isbn= '{{Table1.updatedRow.isbn}}' WHERE id= '{{Table1.updatedRow.id}}';

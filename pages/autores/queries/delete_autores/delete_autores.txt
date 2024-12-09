@@ -1,0 +1,1 @@
+DELETE FROM autores WHERE id = {{Table1.selectedRow.id}};

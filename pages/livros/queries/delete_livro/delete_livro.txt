@@ -1,0 +1,1 @@
+DELETE FROM livros WHERE id = {{Table1.selectedRow.id}};

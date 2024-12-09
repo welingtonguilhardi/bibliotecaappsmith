@@ -1,0 +1,19 @@
+SELECT
+  emprestimos.id,
+  livros.titulo AS 'Título do livro',
+  usuarios.nome AS 'Nome do usuário',
+	emprestimos.data_emprestimo,
+	emprestimos.data_devolucao,
+	emprestimos.data_vencimento
+FROM
+  emprestimos
+LEFT JOIN
+  livros ON emprestimos.livro_id = livros.id
+LEFT JOIN
+  usuarios ON emprestimos.usuario_id = usuarios.id
+ORDER BY
+  {{Table1.sortOrder.column || 'emprestimos.id'}} {{Table1.sortOrder.order !== "desc" ? "" : "DESC"}}
+LIMIT
+  {{Table1.pageSize}}
+OFFSET
+  {{Table1.pageOffset}};

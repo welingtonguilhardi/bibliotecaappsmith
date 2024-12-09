@@ -1,0 +1,35 @@
+{
+  "appIsExample": false,
+  "appLayout": {
+    "type": "FLUID"
+  },
+  "applicationVersion": 2,
+  "collapseInvisibleWidgets": true,
+  "color": "#FBF4ED",
+  "evaluationVersion": 2,
+  "pages": [
+    {
+      "id": "index",
+      "isDefault": true
+    },
+    {
+      "id": "livros",
+      "isDefault": false
+    },
+    {
+      "id": "usuarios",
+      "isDefault": false
+    },
+    {
+      "id": "autores",
+      "isDefault": false
+    },
+    {
+      "id": "emprestimos",
+      "isDefault": false
+    }
+  ],
+  "unpublishedAppLayout": {
+    "type": "FLUID"
+  }
+}

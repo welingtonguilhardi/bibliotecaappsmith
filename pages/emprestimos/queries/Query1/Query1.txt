@@ -1,0 +1,6 @@
+INSERT INTO `emprestimos` (`livro_id`, `usuario_id`, `data_emprestimo`, `data_devolucao`, `data_vencimento`) VALUES
+(12, 14, '2024-12-01', NULL, '2024-12-15'), 
+(12, 15, '2024-12-02', NULL, '2024-12-16'), 
+(16, 14, '2024-12-03', '2024-12-07', '2024-12-17'), 
+( 12,14, '2024-12-04', NULL, '2024-12-18'), 
+(12, 15, '2024-12-05', NULL, '2024-12-19'); 

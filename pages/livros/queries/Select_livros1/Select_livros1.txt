@@ -1,0 +1,17 @@
+SELECT
+  livros.id,
+  livros.titulo,
+	livros.isbn,
+  autores.nome AS Autor
+FROM
+  livros
+LEFT JOIN
+  autores
+ON
+  livros.autor_id = autores.id
+ORDER BY
+  {{Table1.sortOrder.column || 'livros.id'}} {{Table1.sortOrder.order !== "desc" ? "" : "DESC"}}
+LIMIT
+  {{Table1.pageSize}}
+OFFSET
+  {{Table1.pageOffset}};

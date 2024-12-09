@@ -1,0 +1,1 @@
+SELECT * FROM autores LIMIT 10;

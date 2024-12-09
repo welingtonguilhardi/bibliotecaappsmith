@@ -1,0 +1,1 @@
+UPDATE usuarios SET nome= '{{Table1.updatedRow.nome}}', email= '{{Table1.updatedRow.email}}', cpf= '{{Table1.updatedRow.cpf}}' WHERE id= '{{Table1.updatedRow.id}}';

@@ -1,0 +1,2 @@
+INSERT INTO livros (titulo, autor_id,isbn) 
+VALUES ('{{Input1.text}}', '{{Select1.selectedOptionValue}}','{{Input2.text}}');

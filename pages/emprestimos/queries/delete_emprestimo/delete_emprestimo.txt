@@ -1,0 +1,1 @@
+DELETE FROM emprestimos WHERE id = {{Table1.selectedRow.id}};

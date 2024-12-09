@@ -1,0 +1,1 @@
+INSERT INTO emprestimos (livro_id,usuario_id,data_emprestimo,data_devolucao,data_vencimento) VALUES ('{{(Table1.newRow || {}).livro_id}}','{{(Table1.newRow || {}).usuario_id}}','{{(Table1.newRow || {}).data_emprestimo}}','{{(Table1.newRow || {}).data_devolucao}}','{{(Table1.newRow || {}).data_vencimento}}')

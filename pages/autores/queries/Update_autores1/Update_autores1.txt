@@ -1,0 +1,1 @@
+UPDATE autores SET nome= '{{Table1.updatedRow.nome}}' WHERE id= '{{Table1.updatedRow.id}}';

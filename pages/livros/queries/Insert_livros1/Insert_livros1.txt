@@ -1,0 +1,1 @@
+INSERT INTO livros (titulo,autor_id,isbn) VALUES ('{{(Table1.newRow || {}).titulo}}','{{(Table1.newRow || {}).autor_id}}','{{(Table1.newRow || {}).isbn}}')

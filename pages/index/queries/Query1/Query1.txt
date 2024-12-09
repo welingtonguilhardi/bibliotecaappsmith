@@ -1,0 +1,6 @@
+INSERT INTO `livros` (`titulo`, `autor_id`, `isbn`) VALUES
+('Harry Potter and the Sorcerer\'s Stone', 12, '9780439708180'), 
+('A Game of Thrones', 12, '9780553103540'), 
+('The Hobbit', 12, '9780547928227'), 
+('Murder on the Orient Express', 12, '9780062693662'), 
+('The Shining', 12, '9780307743657'); 

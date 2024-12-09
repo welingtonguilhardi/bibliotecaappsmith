@@ -1,0 +1,2 @@
+INSERT INTO emprestimos (livro_id, usuario_id,data_emprestimo,data_vencimento) 
+VALUES ('{{Select1.selectedOptionValue}}','{{Select2.selectedOptionValue}}','{{DatePicker1.formattedDate}}','{{DatePicker2.formattedDate}}');

@@ -1,0 +1,1 @@
+UPDATE emprestimos SET livro_id= '{{Table1.updatedRow.livro_id}}', usuario_id= '{{Table1.updatedRow.usuario_id}}', data_emprestimo= '{{Table1.updatedRow.data_emprestimo}}', data_devolucao= '{{Table1.updatedRow.data_devolucao}}', data_vencimento= '{{Table1.updatedRow.data_vencimento}}' WHERE id= '{{Table1.updatedRow.id}}';
