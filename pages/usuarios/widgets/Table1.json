@@ -42,8 +42,9 @@
   "columnUpdatedAt": 1733700902614,
   "columnWidthMap": {
     "cpf": 147,
-    "customColumn1": 259,
-    "email": 149
+    "customColumn1": 88,
+    "email": 149,
+    "id": 60
   },
   "customIsLoading": false,
   "customIsLoadingValue": "",
@@ -95,12 +96,6 @@
     },
     {
       "key": "primaryColumns.EditActions1.isDiscardDisabled"
-    },
-    {
-      "key": "primaryColumns.customColumn1.borderRadius"
-    },
-    {
-      "key": "primaryColumns.customColumn1.boxShadow"
     }
   ],
   "dynamicPropertyPathList": [
@@ -238,12 +233,11 @@
       "alias": "Excluir",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "borderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
-      "boxShadow": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
-      "buttonColor": "#ef4444",
+      "buttonColor": "#ff0000",
       "buttonLabel": "Excluir",
       "buttonStyle": "rgb(3, 179, 101)",
-      "columnType": "button",
+      "cellBackground": "",
+      "columnType": "iconButton",
       "computedValue": "",
       "currencyCode": "USD",
       "customAlias": "",
@@ -251,6 +245,7 @@
       "enableFilter": true,
       "enableSort": true,
       "horizontalAlignment": "LEFT",
+      "iconName": "trash",
       "id": "customColumn1",
       "index": 5,
       "isCellEditable": false,

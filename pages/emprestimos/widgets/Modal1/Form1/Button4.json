@@ -31,7 +31,7 @@
   "mobileRightColumn": 62,
   "mobileTopRow": 33,
   "needsErrorInfo": false,
-  "onClick": "{{insert_emprestimo.run()}}",
+  "onClick": "{{insert_emprestimo.run();\nSelect_emprestimos2.run();\ncloseModal(Modal1.name);}}",
   "parentId": "vi3f1qdl0c",
   "placement": "CENTER",
   "recaptchaType": "V3",

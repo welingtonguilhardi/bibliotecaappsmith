@@ -5,7 +5,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 38,
+  "bottomRow": 39,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "canFreezeColumn": true,
   "childStylesheet": {
@@ -38,11 +38,21 @@
     "data_emprestimo",
     "data_devolucao",
     "data_vencimento",
+    "Status",
     "customColumn1",
-    "EditActions1"
+    "EditActions1",
+    "usuario_id",
+    "livro_id"
   ],
-  "columnUpdatedAt": 1733711200463,
-  "columnWidthMap": {},
+  "columnUpdatedAt": 1733788367526,
+  "columnWidthMap": {
+    "Status": 183,
+    "customColumn1": 88,
+    "data_devolucao": 110,
+    "data_emprestimo": 114,
+    "data_vencimento": 110,
+    "id": 60
+  },
   "customIsLoading": false,
   "customIsLoadingValue": "",
   "defaultPageSize": 0,
@@ -71,21 +81,6 @@
       "key": "primaryColumns.id.computedValue"
     },
     {
-      "key": "primaryColumns.EditActions1.saveButtonColor"
-    },
-    {
-      "key": "primaryColumns.EditActions1.saveBorderRadius"
-    },
-    {
-      "key": "primaryColumns.EditActions1.discardBorderRadius"
-    },
-    {
-      "key": "primaryColumns.EditActions1.isSaveDisabled"
-    },
-    {
-      "key": "primaryColumns.EditActions1.isDiscardDisabled"
-    },
-    {
       "key": "primaryColumns.customColumn1.borderRadius"
     },
     {
@@ -105,6 +100,30 @@
     },
     {
       "key": "primaryColumns.data_vencimento.computedValue"
+    },
+    {
+      "key": "primaryColumns.Status.computedValue"
+    },
+    {
+      "key": "primaryColumns.EditActions1.saveButtonColor"
+    },
+    {
+      "key": "primaryColumns.EditActions1.saveBorderRadius"
+    },
+    {
+      "key": "primaryColumns.EditActions1.discardBorderRadius"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isSaveDisabled"
+    },
+    {
+      "key": "primaryColumns.EditActions1.isDiscardDisabled"
+    },
+    {
+      "key": "primaryColumns.livro_id.computedValue"
+    },
+    {
+      "key": "primaryColumns.usuario_id.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -129,10 +148,13 @@
       "key": "onAddNewRowSave"
     },
     {
-      "key": "primaryColumns.EditActions1.onSave"
+      "key": "primaryColumns.customColumn1.onClick"
     },
     {
-      "key": "primaryColumns.customColumn1.onClick"
+      "key": "onRowSelected"
+    },
+    {
+      "key": "primaryColumns.EditActions1.onSave"
     }
   ],
   "enableClientSideSearch": true,
@@ -142,7 +164,7 @@
   "isLoading": false,
   "isSortable": true,
   "isVisible": true,
-  "isVisibleDownload": false,
+  "isVisibleDownload": true,
   "isVisibleFilters": false,
   "isVisiblePagination": true,
   "isVisibleSearch": true,
@@ -157,6 +179,7 @@
   "needsErrorInfo": false,
   "onAddNewRowSave": "{{Insert_emprestimos2.run(() => {\n            showAlert(\"Successfully created!\");\n            Select_emprestimos2.run()\n          }, () => {\n            showAlert(\"Unable to create!\");\n          })}}",
   "onPageChange": "{{\n            Select_emprestimos2.run();\n            Total_record_emprestimos2.run()\n          }}",
+  "onRowSelected": "",
   "onSort": "{{\n            Select_emprestimos2.run();\n            Total_record_emprestimos2.run()\n          }}",
   "parentColumnSpace": 11.46875,
   "parentId": "0",
@@ -179,9 +202,8 @@
       "discardIconAlign": "left",
       "enableFilter": true,
       "enableSort": true,
-      "horizontalAlignment": "LEFT",
       "id": "EditActions1",
-      "index": 6,
+      "index": 8,
       "isCellEditable": false,
       "isCellVisible": true,
       "isDerived": true,
@@ -192,15 +214,47 @@
       "isSaveDisabled": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( !Table1.updatedRowIndices.includes(currentIndex)))}}",
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "Salvar / Descartar",
+      "label": "Salvar/ Descartar",
       "notation": "standard",
-      "onSave": "{{Update_emprestimos2.run(() => {\n            showAlert(\"Successfully saved!\");\n            Select_emprestimos2.run()\n          }, () => {\n            showAlert(\"Unable to save!\");\n          })}}",
+      "onSave": "{{Update_emprestimos2.run().then(() => {\n  showAlert('Sucesso ao salvar', 'success');\n}).catch(() => {\n  showAlert('Ocorreu um erro ao tentar salvar', 'error');\n});\nSelect_emprestimos2.run();}}",
       "originalId": "EditActions1",
       "saveActionLabel": "Salvar",
       "saveBorderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
       "saveButtonColor": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
       "saveIconAlign": "left",
-      "sticky": "right",
+      "sticky": "",
+      "thousandSeparator": true,
+      "validation": {},
+      "width": 150
+    },
+    "Status": {
+      "alias": "Status",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "text",
+      "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Status\"]))}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "Status",
+      "index": 6,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Status",
+      "notation": "standard",
+      "originalId": "Status",
+      "sticky": "",
+      "textColor": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},
@@ -251,7 +305,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
-      "columnType": "text",
+      "columnType": "date",
       "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"data_devolucao\"]))}}",
       "currencyCode": "USD",
       "decimals": 0,
@@ -261,12 +315,12 @@
       "horizontalAlignment": "LEFT",
       "id": "data_devolucao",
       "index": 4,
-      "isCellEditable": false,
+      "isCellEditable": true,
       "isCellVisible": true,
       "isDerived": false,
       "isDisabled": false,
       "isDiscardVisible": true,
-      "isEditable": false,
+      "isEditable": true,
       "isSaveVisible": true,
       "isVisible": true,
       "label": "Data da devolução",
@@ -295,12 +349,12 @@
       "horizontalAlignment": "LEFT",
       "id": "data_emprestimo",
       "index": 3,
-      "isCellEditable": false,
+      "isCellEditable": true,
       "isCellVisible": true,
       "isDerived": false,
       "isDisabled": false,
       "isDiscardVisible": true,
-      "isEditable": false,
+      "isEditable": true,
       "isSaveVisible": true,
       "isVisible": true,
       "label": "Data do empréstimo",
@@ -329,12 +383,12 @@
       "horizontalAlignment": "LEFT",
       "id": "data_vencimento",
       "index": 5,
-      "isCellEditable": false,
+      "isCellEditable": true,
       "isCellVisible": true,
       "isDerived": false,
       "isDisabled": false,
       "isDiscardVisible": true,
-      "isEditable": false,
+      "isEditable": true,
       "isSaveVisible": true,
       "isVisible": true,
       "label": "Data de vencimento",
@@ -373,6 +427,74 @@
       "notation": "standard",
       "originalId": "id",
       "sticky": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "livro_id": {
+      "alias": "livro_id",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"livro_id\"]))}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "livro_id",
+      "index": 7,
+      "isCellEditable": false,
+      "isCellVisible": false,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "livro_id",
+      "notation": "standard",
+      "originalId": "livro_id",
+      "sticky": "",
+      "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "usuario_id": {
+      "alias": "usuario_id",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"usuario_id\"]))}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "usuario_id",
+      "index": 8,
+      "isCellEditable": false,
+      "isCellVisible": false,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "usuario_id",
+      "notation": "standard",
+      "originalId": "usuario_id",
+      "sticky": "",
+      "textColor": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},

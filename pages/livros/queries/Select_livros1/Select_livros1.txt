@@ -2,7 +2,8 @@ SELECT
   livros.id,
   livros.titulo,
 	livros.isbn,
-  autores.nome AS Autor
+  autores.nome AS Autor,
+	livros.autor_id
 FROM
   livros
 LEFT JOIN

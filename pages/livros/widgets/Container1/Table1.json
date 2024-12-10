@@ -37,12 +37,17 @@
     "Autor",
     "isbn",
     "customColumn1",
-    "EditActions1"
+    "EditActions1",
+    "autor_id"
   ],
-  "columnUpdatedAt": 1733707786765,
+  "columnUpdatedAt": 1733788853561,
   "columnWidthMap": {
-    "id": 79,
-    "isbn": 120
+    "Autor": 279,
+    "EditActions1": 144.55419921875,
+    "customColumn1": 90,
+    "id": 60,
+    "isbn": 141,
+    "titulo": 396
   },
   "customIsLoading": false,
   "customIsLoadingValue": "",
@@ -100,6 +105,9 @@
     },
     {
       "key": "primaryColumns.isbn.computedValue"
+    },
+    {
+      "key": "primaryColumns.autor_id.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -221,7 +229,7 @@
       "isSaveDisabled": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( !Table1.updatedRowIndices.includes(currentIndex)))}}",
       "isSaveVisible": true,
       "isVisible": true,
-      "label": "Save / Discard",
+      "label": "Salvar / Descartar",
       "notation": "standard",
       "onSave": "{{Update_livros1.run(() => {\n            showAlert(\"Successfully saved!\");\n            Select_livros1.run()\n          }, () => {\n            showAlert(\"Unable to save!\");\n          })}}",
       "originalId": "EditActions1",
@@ -229,7 +237,41 @@
       "saveBorderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
       "saveButtonColor": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
       "saveIconAlign": "left",
-      "sticky": "right",
+      "sticky": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "autor_id": {
+      "alias": "autor_id",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "cellBackground": "",
+      "columnType": "number",
+      "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"autor_id\"]))}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "fontStyle": "",
+      "horizontalAlignment": "LEFT",
+      "id": "autor_id",
+      "index": 4,
+      "isCellEditable": false,
+      "isCellVisible": false,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": false,
+      "label": "autor_id",
+      "notation": "standard",
+      "originalId": "autor_id",
+      "sticky": "",
+      "textColor": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},

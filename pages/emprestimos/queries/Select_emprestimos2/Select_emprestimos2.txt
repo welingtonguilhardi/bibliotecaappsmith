@@ -2,15 +2,29 @@ SELECT
   emprestimos.id,
   livros.titulo AS 'Título do livro',
   usuarios.nome AS 'Nome do usuário',
-	emprestimos.data_emprestimo,
-	emprestimos.data_devolucao,
-	emprestimos.data_vencimento
+  emprestimos.data_emprestimo,
+  emprestimos.data_devolucao,
+  emprestimos.data_vencimento,
+	emprestimos.livro_id,
+	emprestimos.usuario_id,
+  CASE
+    WHEN emprestimos.data_devolucao IS NOT NULL THEN 
+      CASE 
+        WHEN emprestimos.data_devolucao <= emprestimos.data_vencimento THEN 'Devolvido no prazo'
+        ELSE 'Devolvido com atraso'
+      END
+    WHEN emprestimos.data_devolucao IS NULL AND CURRENT_DATE > emprestimos.data_vencimento THEN 'Vencido'
+    WHEN emprestimos.data_devolucao IS NULL AND CURRENT_DATE <= emprestimos.data_vencimento THEN 'No prazo'
+    ELSE 'Indefinido'
+  END AS 'Status'
 FROM
   emprestimos
 LEFT JOIN
   livros ON emprestimos.livro_id = livros.id
 LEFT JOIN
   usuarios ON emprestimos.usuario_id = usuarios.id
+WHERE
+  {{Table1.searchStatus ? "CASE WHEN {{Table1.searchStatus}}" : "1=1"}}
 ORDER BY
   {{Table1.sortOrder.column || 'emprestimos.id'}} {{Table1.sortOrder.order !== "desc" ? "" : "DESC"}}
 LIMIT
